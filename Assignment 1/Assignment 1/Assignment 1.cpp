@@ -12,10 +12,10 @@ int main() {
 	int year, year1;
 	int x = 30;
 	int y = 24;
-	char qans;
+	char ans = 'Y';
 
 	// Getting Main loop
-	while (qans == 'yes' || qans == 'Yes') {
+	while (ans == 'Y' || ans == 'y') {
 		// Getting users date of birth
 		cout << "Enter birth month: ";
 		cin >> month;
@@ -49,17 +49,17 @@ int main() {
 		cout << "Todays date is " << month1 << "/" << day1 << "/" << year1 << ".";
 		cin.get();
 		system("CLS");
-		cout << "You have lived for " << (((year1 - year) * 365) + ((month1 - month) * x) + (day1 - day)) << " days." << "n\n";
+		cout << "You have lived for " << (((year1 - year) * 365) + ((month1 - month) * x) + (day1 - day)) << " days." << "\n";
 		cin.get();
-		cout << "You have slept for " << ((((year1 - year) * 365) + ((month1 - month) * x) + (day1 - day)) * 8) << " hours." << "n\n";
+		cout << "You have slept for " << ((((year1 - year) * 365) + ((month1 - month) * x) + (day1 - day)) * 8) << " hours." << "\n";
 		cin.get();
-		cout << "Would you like to do this program over again?" << "n\n";
-		cin >> qans;
-		if (qans == 'yes' || qans == 'yes') {
-			cin >> qans;
-		}
-		cout << "Thank you for using this program.\n";
-		
-		system("PAUSE");
+		// Asking user if they would want to redue the program
+		cout << "Would you like to do this program over again? (Y/N)" << "\n\n";
+		cin >> ans;
+		if (ans == 'Y' || ans == 'y') 
+			system("CLS");
 	}
+	cout << "\nThank you for using this program.\n";
+
+	return 0;
 }
