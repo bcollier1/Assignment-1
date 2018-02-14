@@ -12,6 +12,7 @@ int main() {
 	// Variables for month, day, year, loop, equation
 	int month, month1;
 	int day, day1;
+	int year, year1;
 	char ans = 'Y';
 	int juldayold;
 	int juldaynew;
