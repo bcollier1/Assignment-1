@@ -9,13 +9,12 @@
 using namespace std;
 
 int main() {
-	// Variables for month, day, year, day amount, hour
+	// Variables for month, day, year, loop, equation
 	int month, month1;
 	int day, day1;
-	int year, year1;
-	int x = 30;
-	int y = 24;
 	char ans = 'Y';
+	int juldayold;
+	int juldaynew;
 
 	cout << "//////////////////////////////////////////////////////////////" << "\n";
 	cout << "///                 Welcome to life calculator             ///" << "\n";
@@ -70,8 +69,15 @@ int main() {
 		cout << "Press enter to continue...";
 		cin.get();
 		system("CLS");
-		cout << "You have lived for " << (((year1 - year) * 365) + ((month1 - month) * x) + (day1 - day)) << " days." << "\n\n";
-		cout << "You have slept for " << ((((year1 - year) * 365) + ((month1 - month) * x) + (day1 - day)) * 8) << " hours." << "\n\n";
+		
+		// Equation for converting Gregorian calendar to Julian calendar (Sourced from Wikipedia)
+		juldayold = (1461 * (year + 4800 + (month - 14) / 12)) / 4 + (367 * (month - 2 - 12 * ((month - 14) / 12))) / 12 - (3 * ((year + 4900 + (month - 14) / 12) / 100)) / 4 + day - 32075;
+		juldaynew = (1461 * (year1 + 4800 + (month1 - 14) / 12)) / 4 + (367 * (month1 - 2 - 12 * ((month1 - 14) / 12))) / 12 - (3 * ((year1 + 4900 + (month1 - 14) / 12) / 100)) / 4 + day1 - 32075;
+
+		// Outputs the days lived and hours slept
+		cout << "You have lived for " << juldaynew - juldayold << " days." << "\n\n";
+		cout << "You have slept for " << (juldaynew - juldayold) * 8 << " hours." << "\n\n";
+
 		// Asking user if they would want to redue the program
 		cout << "Would you like to do this program over again? (Y/N)" << "\n\n";
 		cin >> ans;
